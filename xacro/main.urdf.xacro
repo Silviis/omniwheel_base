@@ -1,0 +1,114 @@
+<!-- 
+MIT License
+
+Copyright (c) 2016 GuiRitter
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<?xml version="1.0"?>
+<robot
+	xmlns:xacro="http://www.ros.org/wiki/xacro"
+	name="open_base"
+>
+
+	<xacro:include filename="$(find open_base)/xacro/rim.urdf.xacro"/>
+
+	<link name="origin_link"/>
+	<link name="base_link">
+
+	<inertial>
+
+		<mass value="0.07862944645"/>
+		<inertia
+			ixx="0.00002035985530754"
+			ixy="0"
+			ixz="0"
+			iyy="0.00002035985530754"
+			iyz="0"
+			izz="0.00003945961663220"
+		/>
+
+	</inertial>
+	<visual>
+
+		<geometry>
+
+			<mesh filename="package://open_base/mesh/base.stl"/>
+
+		</geometry>
+		<material name="base_material">
+
+			<color rgba="1 1 1 1"/>
+
+		</material>
+
+	</visual>
+	<collision>
+
+		<geometry>
+
+			<mesh filename="package://open_base/mesh/base.stl"/>
+
+		</geometry>
+
+	</collision>
+
+	</link>
+	<joint
+		name="base_joint"
+		type="fixed"
+	>
+
+		<parent link="origin_link" />
+		<child link="base_link" />
+		<origin
+			xyz="0 0 0.01905"
+		/>
+
+	</joint>
+	<xacro:rim_macro
+		name="left"
+		color="0.3 0 0"
+		xyz="-0.03464101615 0.02 0"
+		rpy="1.570796326794896 0 1.047197551196597"
+	/>
+	<xacro:rim_macro
+		name="back"
+		color="0 0.3 0"
+		xyz="0 -0.04 0"
+		rpy="1.570796326794896 0 3.141592653589793"
+	/>
+	<xacro:rim_macro
+		name="right"
+		color="0 0 0.3"
+		xyz="0.03464101615 0.02 0"
+		rpy="1.570796326794896 0 -1.047197551196597"
+	/>
+	<gazebo>
+
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+			<robotNamespace>/open_base</robotNamespace>
+
+		</plugin>
+
+	</gazebo>
+
+</robot>
