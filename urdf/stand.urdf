@@ -1,4 +1,4 @@
-<robot name="open_base">
+<robot name="omniwheel_base">
 
     <link name="world"/>
     <link name="origin_link"/>

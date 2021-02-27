@@ -1,4 +1,4 @@
-<robot name="open_base">
+<robot name="omniwheel_base">
 
 	<link name="origin_link"/>
 	<link name="base_link">
@@ -20,7 +20,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/base.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/base.stl"/>
 
 			</geometry>
 			<material name="base_material">
@@ -34,7 +34,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/base.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/base.stl"/>
 
 			</geometry>
 
@@ -72,7 +72,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 			<material name="left_rim_material">
@@ -86,7 +86,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 
@@ -126,7 +126,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_e_material">
@@ -140,7 +140,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -180,7 +180,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_e_material">
@@ -194,7 +194,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -234,7 +234,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_n_material">
@@ -248,7 +248,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -288,7 +288,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_nw_material">
@@ -302,7 +302,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -342,7 +342,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_w_material">
@@ -356,7 +356,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -396,7 +396,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_sw_material">
@@ -410,7 +410,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -450,7 +450,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_s_material">
@@ -464,7 +464,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -504,7 +504,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="left_roller_se_material">
@@ -518,7 +518,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -559,7 +559,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 			<material name="back_rim_material">
@@ -573,7 +573,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 
@@ -613,7 +613,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_e_material">
@@ -627,7 +627,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -667,7 +667,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_e_material">
@@ -681,7 +681,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -721,7 +721,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_n_material">
@@ -735,7 +735,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -775,7 +775,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_nw_material">
@@ -789,7 +789,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -829,7 +829,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_w_material">
@@ -843,7 +843,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -883,7 +883,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_sw_material">
@@ -897,7 +897,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -937,7 +937,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_s_material">
@@ -951,7 +951,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -991,7 +991,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="back_roller_se_material">
@@ -1005,7 +1005,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1046,7 +1046,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 			<material name="right_rim_material">
@@ -1060,7 +1060,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/rim.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/rim.stl"/>
 
 			</geometry>
 
@@ -1100,7 +1100,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_e_material">
@@ -1114,7 +1114,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1154,7 +1154,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_e_material">
@@ -1168,7 +1168,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1208,7 +1208,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_n_material">
@@ -1222,7 +1222,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1262,7 +1262,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_nw_material">
@@ -1276,7 +1276,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1316,7 +1316,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_w_material">
@@ -1330,7 +1330,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1370,7 +1370,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_sw_material">
@@ -1384,7 +1384,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1424,7 +1424,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_s_material">
@@ -1438,7 +1438,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1478,7 +1478,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 			<material name="right_roller_se_material">
@@ -1492,7 +1492,7 @@
 
 			<geometry>
 
-				<mesh filename="package://open_base/mesh/roller.stl"/>
+				<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 			</geometry>
 
@@ -1565,7 +1565,7 @@
 
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 
-			<robotNamespace>/open_base</robotNamespace>
+			<robotNamespace>/omniwheel_base</robotNamespace>
 
 		</plugin>
 

@@ -1,7 +1,7 @@
 uint8 movement
-open_base/Velocity wheel
-open_base/MovementGeneric generic
-open_base/MovementBezier bezier
+omniwheel_base/Velocity wheel
+omniwheel_base/MovementGeneric generic
+omniwheel_base/MovementBezier bezier
 # movement constants
 uint8 BEZIER=0
 uint8 GENERIC=1

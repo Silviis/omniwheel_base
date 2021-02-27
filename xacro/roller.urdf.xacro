@@ -25,7 +25,7 @@
 
 				<geometry>
 
-					<mesh filename="package://open_base/mesh/roller.stl"/>
+					<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 				</geometry>
 				<material name="roller_material">
@@ -39,7 +39,7 @@
 
 				<geometry>
 
-					<mesh filename="package://open_base/mesh/roller.stl"/>
+					<mesh filename="package://omniwheel_base/mesh/roller.stl"/>
 
 				</geometry>
 

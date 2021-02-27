@@ -2,7 +2,7 @@
 <package>
   <name>omniwheel_base</name>
   <version>0.0.1</version>
-  <description>The open_base package</description>
+  <description>The omniwheel_base package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

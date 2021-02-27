@@ -5,9 +5,9 @@
 #include <geometry_msgs/Pose2D.h>
 #include <sensor_msgs/JointState.h>
 
-#include <open_base/FrameToFrame.h>
-#include <open_base/KinematicsForward.h>
-#include <open_base/KinematicsInverse.h>
+#include <omniwheel_base/FrameToFrame.h>
+#include <omniwheel_base/KinematicsForward.h>
+#include <omniwheel_base/KinematicsInverse.h>
 
 #include <kdl/frames.hpp>
 #include <kdl_parser/kdl_parser.hpp>
@@ -23,7 +23,7 @@ void mobileToWorldCore(double Vxm, double Vym, double& Vxw, double& Vyw) {
     Vyw = (std::sin(theta) * Vxm) + (std::cos(theta) * Vym);
 }
 
-bool mobileToWorld(open_base::FrameToFrame::Request &request, open_base::FrameToFrame::Response &response) {
+bool mobileToWorld(omniwheel_base::FrameToFrame::Request &request, omniwheel_base::FrameToFrame::Response &response) {
     mobileToWorldCore(request.input.x, request.input.y, response.output.x, response.output.y);
 }
 
@@ -32,24 +32,24 @@ void worldToMobileCore(double Vxw, double Vyw, double& Vxm, double& Vym) {
     Vym = - (std::sin(theta) * Vxw) + (std::cos(theta) * Vyw);
 }
 
-bool worldToMobile(open_base::FrameToFrame::Request &request, open_base::FrameToFrame::Response &response) {
+bool worldToMobile(omniwheel_base::FrameToFrame::Request &request, omniwheel_base::FrameToFrame::Response &response) {
     worldToMobileCore(request.input.x, request.input.y, response.output.x, response.output.y);
 }
 
-bool forwardMobile(open_base::KinematicsForward::Request &request, open_base::KinematicsForward::Response &response) {
+bool forwardMobile(omniwheel_base::KinematicsForward::Request &request, omniwheel_base::KinematicsForward::Response &response) {
     response.output.x     = ((2.0L * request.input.v_back) - request.input.v_left - request.input.v_right) / 3.0L;
     response.output.y     = ((sqrt3 * request.input.v_right) - (sqrt3 * request.input.v_left)) / 3.0L;
     response.output.theta = (request.input.v_left + request.input.v_back + request.input.v_right) / L3;
     return true;
 }
 
-bool forwardWorld(open_base::KinematicsForward::Request &request, open_base::KinematicsForward::Response &response) {
+bool forwardWorld(omniwheel_base::KinematicsForward::Request &request, omniwheel_base::KinematicsForward::Response &response) {
     forwardMobile(request, response);
     mobileToWorldCore(response.output.x, response.output.y, response.output.x, response.output.y);
     return true;
 }
 
-bool inverseMobile(open_base::KinematicsInverse::Request &request, open_base::KinematicsInverse::Response &response) {
+bool inverseMobile(omniwheel_base::KinematicsInverse::Request &request, omniwheel_base::KinematicsInverse::Response &response) {
     long double V__m_x2 = - request.input.x / 2.0L;
     long double sqrt3V__m_y2 = (sqrt3 * request.input.y) / 2.0L;
     long double Lomega_p = L * request.input.theta;
@@ -59,7 +59,7 @@ bool inverseMobile(open_base::KinematicsInverse::Request &request, open_base::Ki
     return true;
 }
 
-bool inverseWorld(open_base::KinematicsInverse::Request &request, open_base::KinematicsInverse::Response &response) {
+bool inverseWorld(omniwheel_base::KinematicsInverse::Request &request, omniwheel_base::KinematicsInverse::Response &response) {
     worldToMobileCore(request.input.x, request.input.y, request.input.x, request.input.y);
     inverseMobile(request, response);
     return true;

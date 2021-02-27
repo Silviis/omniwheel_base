@@ -57,19 +57,15 @@ find_package(kdl_parser REQUIRED)
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
-#   Message1.msg
-#   Message2.msg
-  Velocity.msg
   MovementBezier.msg
   MovementGeneric.msg
   Movement.msg
+  Velocity.msg
 )
 
 ## Generate services in the 'srv' folder
 add_service_files(
   FILES
-#   Service1.srv
-#   Service2.srv
   FrameToFrame.srv
   KinematicsForward.srv
   KinematicsInverse.srv
@@ -136,10 +132,6 @@ include_directories(include
   ${Eigen3_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/open_base.cpp
-# )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -169,7 +161,7 @@ target_link_libraries(
   ${orocos-kdl_LIBRARIES}
   ${kdl_parser_LIBRARIES}
 )
-add_dependencies(${PROJECT_NAME}_kinematics open_base_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_kinematics omniwheel_base_generate_messages_cpp)
 
 add_executable(${PROJECT_NAME}_odometry src/odometry.cpp)
 target_link_libraries(
@@ -177,21 +169,21 @@ target_link_libraries(
   ${catkin_LIBRARIES}
   ${kdl_parser_LIBRARIES}
 )
-add_dependencies(${PROJECT_NAME}_odometry open_base_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_odometry omniwheel_base_generate_messages_cpp)
 
 add_executable(${PROJECT_NAME}_sensor_encoder src/sensor/encoder.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_sensor_encoder
   ${catkin_LIBRARIES}
 )
-add_dependencies(${PROJECT_NAME}_sensor_encoder open_base_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_sensor_encoder omniwheel_base_generate_messages_cpp)
 
 add_executable(${PROJECT_NAME}_main src/main.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_main
   ${catkin_LIBRARIES}
 )
-add_dependencies(${PROJECT_NAME}_main open_base_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME}_main omniwheel_base_generate_messages_cpp)
 
 #############
 ## Install ##
@@ -233,7 +225,7 @@ add_dependencies(${PROJECT_NAME}_main open_base_generate_messages_cpp)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_open_base.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_omniwheel_base.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -8,8 +8,8 @@
 
 #include <kdl/frames.hpp>
 
-#include <open_base/KinematicsForward.h>
-#include <open_base/Velocity.h>
+#include <omniwheel_base/KinematicsForward.h>
+#include <omniwheel_base/Velocity.h>
 
 long double duration;
 
@@ -19,7 +19,7 @@ ros::ServiceClient kinematicsForwardMobile;
 
 ros::ServiceClient kinematicsForwardWorld;
 
-std::string openBaseString = "open_base";
+std::string openBaseString = "omniwheel_base";
 
 std::string originString = "origin";
 
@@ -41,12 +41,12 @@ double rotX, rotY, rotZ;
 
 KDL::Rotation rotation;
 
-open_base::KinematicsForward service;
+omniwheel_base::KinematicsForward service;
 
 ros::Time timeCurrent;
 ros::Time timePrevious;
 
-void onEncoderMessage(const open_base::Velocity::ConstPtr& input){
+void onEncoderMessage(const omniwheel_base::Velocity::ConstPtr& input){
     service.request.input.v_left  = input->v_left  * r;
     service.request.input.v_back  = input->v_back  * r;
     service.request.input.v_right = input->v_right * r;
@@ -131,8 +131,8 @@ int main(int argc, char **argv){
             subscriber = node.subscribe("sensor/wheel_velocity", 1, onEncoderMessage);
         }
     }
-    kinematicsForwardWorld  = node.serviceClient<open_base::KinematicsForward>("kinematics_forward_world" );
-    kinematicsForwardMobile = node.serviceClient<open_base::KinematicsForward>("kinematics_forward_mobile");
+    kinematicsForwardWorld  = node.serviceClient<omniwheel_base::KinematicsForward>("kinematics_forward_world" );
+    kinematicsForwardMobile = node.serviceClient<omniwheel_base::KinematicsForward>("kinematics_forward_mobile");
     publisherWorld  = node.advertise<geometry_msgs::Pose2D>("pose/world" , 1);
     publisherMobile = node.advertise<geometry_msgs::Pose2D>("pose/mobile", 1);
     ros::spin();

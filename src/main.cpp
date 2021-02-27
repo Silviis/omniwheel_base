@@ -5,12 +5,12 @@
 #include <geometry_msgs/Pose2D.h>
 #include <std_msgs/Float64.h>
 
-#include <open_base/FrameToFrame.h>
-#include <open_base/KinematicsInverse.h>
-#include <open_base/Movement.h>
-#include <open_base/MovementBezier.h>
-#include <open_base/MovementGeneric.h>
-#include <open_base/Velocity.h>
+#include <omniwheel_base/FrameToFrame.h>
+#include <omniwheel_base/KinematicsInverse.h>
+#include <omniwheel_base/Movement.h>
+#include <omniwheel_base/MovementBezier.h>
+#include <omniwheel_base/MovementGeneric.h>
+#include <omniwheel_base/Velocity.h>
 
 #define pi30 0.1047197551196597705355242034774843062905347323976457118988037109375 // long double thirty = 30; long double mOne = -1; printf("%1.70Lf\n", (long double) acos(mOne) / thirty);
 #define pi 3.141592653589793115997963468544185161590576171875 // long double mOne = -1; printf("%1.70Lf\n", (long double) acos(mOne));
@@ -53,11 +53,11 @@ geometry_msgs::Pose2D error;
 
 geometry_msgs::Pose2D errorI;
 
-open_base::FrameToFrame mobileToWorld;
+omniwheel_base::FrameToFrame mobileToWorld;
 
 long double I;
 
-open_base::KinematicsInverse kinematicsInverse;
+omniwheel_base::KinematicsInverse kinematicsInverse;
 
 ros::ServiceClient kinematicsInverseMobileClient;
 
@@ -102,7 +102,7 @@ long double v_max;
 
 std_msgs::Float64 value;
 
-open_base::Velocity velocity;
+omniwheel_base::Velocity velocity;
 
 /**
  * source:
@@ -170,9 +170,9 @@ long double normalizeRadian(long double radian) {
     return radian;
 }
 
-void onCommandMessage(const open_base::Movement::ConstPtr& input){
-    if (input->movement == open_base::Movement::BEZIER) {
-        if (input->bezier.frame == open_base::Movement::MOBILE) {
+void onCommandMessage(const omniwheel_base::Movement::ConstPtr& input){
+    if (input->movement == omniwheel_base::Movement::BEZIER) {
+        if (input->bezier.frame == omniwheel_base::Movement::MOBILE) {
 
             // Bézier mobile
             if ((input->bezier.targetTranslation.empty()) || (input->bezier.targetRotation.empty())) {
@@ -247,7 +247,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
             movement = MOVEMENT_BEZIER_W;
 
         }
-    } else if (input->movement == open_base::Movement::WHEEL) {
+    } else if (input->movement == omniwheel_base::Movement::WHEEL) {
 
         // direct wheel
         velocity.v_left  = input->wheel.v_left ;
@@ -255,9 +255,9 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
         velocity.v_right = input->wheel.v_right;
         movement = MOVEMENT_DIRECT;
 
-    } else if (input->movement == open_base::Movement::GENERIC) {
-        if (input->generic.type == open_base::Movement::POSITION_ABSOLUTE) {
-            if (input->generic.frame == open_base::Movement::WORLD) {
+    } else if (input->movement == omniwheel_base::Movement::GENERIC) {
+        if (input->generic.type == omniwheel_base::Movement::POSITION_ABSOLUTE) {
+            if (input->generic.frame == omniwheel_base::Movement::WORLD) {
 
                 // absolute world
                 poseTarget.x     = input->generic.target.x;
@@ -265,7 +265,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 poseTarget.theta = input->generic.target.theta;
                 movement = MOVEMENT_ABSOLUTE_W;
 
-            } else if (input->generic.frame == open_base::Movement::MOBILE) {
+            } else if (input->generic.frame == omniwheel_base::Movement::MOBILE) {
 
                 // absolute mobile
                 // distance to be traversed in the mobile platform's frame
@@ -280,7 +280,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 poseTarget.theta = input->generic.target.theta;
                 movement = MOVEMENT_ABSOLUTE_W;
 
-            } else {//input->generic.frame == open_base::Movement::MOBILE_RAW
+            } else {//input->generic.frame == omniwheel_base::Movement::MOBILE_RAW
 
                 // absolute mobile raw
                 poseTarget.x     = input->generic.target.x;
@@ -288,8 +288,8 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 poseTarget.theta = input->generic.target.theta;
                 movement = MOVEMENT_ABSOLUTE_M;
             }
-        } else if (input->generic.type == open_base::Movement::POSITION_RELATIVE) {
-            if (input->generic.frame == open_base::Movement::WORLD) {
+        } else if (input->generic.type == omniwheel_base::Movement::POSITION_RELATIVE) {
+            if (input->generic.frame == omniwheel_base::Movement::WORLD) {
 
                 // relative world
                 poseTarget.x     = poseWorld.x + input->generic.target.x;
@@ -297,7 +297,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 poseTarget.theta = normalizeRadian(poseWorld.theta + input->generic.target.theta);
                 movement = MOVEMENT_ABSOLUTE_W;
 
-            } else if (input->generic.frame == open_base::Movement::MOBILE) {
+            } else if (input->generic.frame == omniwheel_base::Movement::MOBILE) {
 
                 // relative mobile
                 // distance to be traversed in the mobile platform's frame
@@ -312,7 +312,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 poseTarget.theta = normalizeRadian(poseWorld.theta + input->generic.target.theta);
                 movement = MOVEMENT_ABSOLUTE_W;
 
-            } else {//input->generic.frame == open_base::Movement::MOBILE_RAW
+            } else {//input->generic.frame == omniwheel_base::Movement::MOBILE_RAW
 
                 // relative mobile raw
                 poseTarget.x     = poseMobile.x + input->generic.target.x;
@@ -321,8 +321,8 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 movement = MOVEMENT_ABSOLUTE_M;
 
             }
-        } else {//input->generic.type == open_base::Movement::VELOCITY
-            if (input->generic.frame == open_base::Movement::MOBILE) {
+        } else {//input->generic.type == omniwheel_base::Movement::VELOCITY
+            if (input->generic.frame == omniwheel_base::Movement::MOBILE) {
 
                 // direct mobile
                 kinematicsInverse.request.input.x     = input->generic.target.x;
@@ -330,7 +330,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 kinematicsInverse.request.input.theta = input->generic.target.theta;
                 movement = MOVEMENT_DIRECT_M;
 
-            } else if (input->generic.frame == open_base::Movement::WORLD) {
+            } else if (input->generic.frame == omniwheel_base::Movement::WORLD) {
 
                 // direct world
                 kinematicsInverse.request.input.x     = input->generic.target.x;
@@ -338,7 +338,7 @@ void onCommandMessage(const open_base::Movement::ConstPtr& input){
                 kinematicsInverse.request.input.theta = input->generic.target.theta;
                 movement = MOVEMENT_DIRECT_W;
 
-            } else {//input->generic.frame == open_base::Movement::HYBRID
+            } else {//input->generic.frame == omniwheel_base::Movement::HYBRID
 
                 // direct hybrid
                 mobileToWorld.request.input.x = input->generic.target.x;
@@ -409,9 +409,9 @@ int main(int argc, char **argv) {
         }
         I = parameter;
     }
-    kinematicsInverseMobileClient = node.serviceClient<open_base::KinematicsInverse>("kinematics_inverse_mobile");
-    kinematicsInverseWorldClient  = node.serviceClient<open_base::KinematicsInverse>("kinematics_inverse_world" );
-    kinematicsMobileToWorldClient = node.serviceClient<open_base::FrameToFrame>("kinematics_mobile_to_world");
+    kinematicsInverseMobileClient = node.serviceClient<omniwheel_base::KinematicsInverse>("kinematics_inverse_mobile");
+    kinematicsInverseWorldClient  = node.serviceClient<omniwheel_base::KinematicsInverse>("kinematics_inverse_world" );
+    kinematicsMobileToWorldClient = node.serviceClient<omniwheel_base::FrameToFrame>("kinematics_mobile_to_world");
     v_leftCommand  = node.advertise<std_msgs::Float64>("left_joint_velocity_controller/command", 1);
     v_backCommand  = node.advertise<std_msgs::Float64>("back_joint_velocity_controller/command", 1);
     v_rightCommand = node.advertise<std_msgs::Float64>("right_joint_velocity_controller/command", 1);

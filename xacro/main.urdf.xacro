@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <robot
 	xmlns:xacro="http://www.ros.org/wiki/xacro"
-	name="open_base"
+	name="omniwheel_base"
 >
 
-	<xacro:include filename="$(find open_base)/xacro/rim.urdf.xacro"/>
+	<xacro:include filename="$(find omniwheel_base)/xacro/rim.urdf.xacro"/>
 
 	<link name="origin_link"/>
 	<link name="base_link">
@@ -26,7 +26,7 @@
 
 		<geometry>
 
-			<mesh filename="package://open_base/mesh/base.stl"/>
+			<mesh filename="package://omniwheel_base/mesh/base.stl"/>
 
 		</geometry>
 		<material name="base_material">
@@ -40,7 +40,7 @@
 
 		<geometry>
 
-			<mesh filename="package://open_base/mesh/base.stl"/>
+			<mesh filename="package://omniwheel_base/mesh/base.stl"/>
 
 		</geometry>
 
@@ -81,7 +81,7 @@
 
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 
-			<robotNamespace>/open_base</robotNamespace>
+			<robotNamespace>/omniwheel_base</robotNamespace>
 
 		</plugin>
 

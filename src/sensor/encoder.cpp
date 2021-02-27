@@ -1,13 +1,13 @@
 #include <ros/ros.h>
 #include <sensor_msgs/JointState.h>
 
-#include <open_base/Velocity.h>
+#include <omniwheel_base/Velocity.h>
 
 long double duration;
 
 int i;
 
-open_base::Velocity message;
+omniwheel_base::Velocity message;
 
 ros::Publisher publisher;
 
@@ -54,8 +54,8 @@ int main(int argc, char **argv){
     ros::init(argc, argv, "sensor/encoder");
     ros::NodeHandle node;
     while (!ros::Time::waitForValid()) {}
-    ros::Subscriber subscriber = node.subscribe("/open_base/joint_states", 1, onJointStateMessage);
-    publisher = node.advertise<open_base::Velocity>("wheel_velocity", 1);
+    ros::Subscriber subscriber = node.subscribe("/omniwheel_base/joint_states", 1, onJointStateMessage);
+    publisher = node.advertise<omniwheel_base::Velocity>("wheel_velocity", 1);
     ros::spin();
     return 0;
 }
