@@ -1,4 +1,4 @@
-<robot name="omniwheel_base">
+<robot name="gambot">
 
 	<link name="origin_link"/>
 	<link name="base_link">
@@ -1518,12 +1518,12 @@
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="left_rim_joint">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 
 		</joint>
 		<actuator name="left_motor">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 
 		</actuator>
@@ -1534,12 +1534,12 @@
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="back_rim_joint">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 
 		</joint>
 		<actuator name="back_motor">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 
 		</actuator>
@@ -1550,25 +1550,22 @@
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="right_rim_joint">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 
 		</joint>
 		<actuator name="rim_motor">
 
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 
 		</actuator>
 
 	</transmission>
+	
 	<gazebo>
-
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-
-			<robotNamespace>/omniwheel_base</robotNamespace>
-
+			<robotNamespace>/gambot</robotNamespace>
 		</plugin>
-
 	</gazebo>
 
 </robot>

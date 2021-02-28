@@ -55,21 +55,8 @@ find_package(kdl_parser REQUIRED)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  MovementBezier.msg
-  MovementGeneric.msg
-  Movement.msg
-  Velocity.msg
-)
 
 ## Generate services in the 'srv' folder
-add_service_files(
-  FILES
-  FrameToFrame.srv
-  KinematicsForward.srv
-  KinematicsInverse.srv
-)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -79,11 +66,6 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs  # Or other packages containing msgs
-  geometry_msgs
-)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -153,37 +135,6 @@ include_directories(include
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 # Specify libraries to link a library or executable target against
-
-add_executable(${PROJECT_NAME}_kinematics src/kinematics.cpp)
-target_link_libraries(
-  ${PROJECT_NAME}_kinematics
-  ${catkin_LIBRARIES}
-  ${orocos-kdl_LIBRARIES}
-  ${kdl_parser_LIBRARIES}
-)
-add_dependencies(${PROJECT_NAME}_kinematics omniwheel_base_generate_messages_cpp)
-
-add_executable(${PROJECT_NAME}_odometry src/odometry.cpp)
-target_link_libraries(
-  ${PROJECT_NAME}_odometry
-  ${catkin_LIBRARIES}
-  ${kdl_parser_LIBRARIES}
-)
-add_dependencies(${PROJECT_NAME}_odometry omniwheel_base_generate_messages_cpp)
-
-add_executable(${PROJECT_NAME}_sensor_encoder src/sensor/encoder.cpp)
-target_link_libraries(
-  ${PROJECT_NAME}_sensor_encoder
-  ${catkin_LIBRARIES}
-)
-add_dependencies(${PROJECT_NAME}_sensor_encoder omniwheel_base_generate_messages_cpp)
-
-add_executable(${PROJECT_NAME}_main src/main.cpp)
-target_link_libraries(
-  ${PROJECT_NAME}_main
-  ${catkin_LIBRARIES}
-)
-add_dependencies(${PROJECT_NAME}_main omniwheel_base_generate_messages_cpp)
 
 #############
 ## Install ##
