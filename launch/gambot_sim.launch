@@ -1,12 +1,11 @@
 <launch>
-    <param name="robot_description" textfile="$(find omniwheel_base)/urdf/gambot.urdf" />
+    <param name="robot_description" textfile="$(find gambot_base)/urdf/gambot.urdf" />
 
     <node name="gambot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model gambot" />
 
-    <rosparam file="$(find gambot_hardware_interface)/config/gambot.yaml" command="load"/>
+    <rosparam file="$(find gambot_base)/config/gambot.yaml" command="load"/>
 
-    <!--node name="gambot_hardware_interface" pkg="gambot_hardware_interface" type="gambot_hardware_interface_node" output="screen"/-->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/gambot"
         args="left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller joint_state_controller"/>    
 
