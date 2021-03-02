@@ -1,6 +1,6 @@
 <robot name="gambot">
 
-	<link name="origin_link"/>
+	<link name="base_footprint"/>
 	<link name="base_link">
 
 		<inertial>
@@ -46,7 +46,7 @@
 		type="fixed"
 	>
 
-		<parent link="origin_link"/>
+		<parent link="base_footprint"/>
 		<child link="base_link"/>
 		<axis xyz="0 0 1"/>
 		<origin xyz="0 0 0.01905"/>
