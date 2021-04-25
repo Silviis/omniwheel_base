@@ -7,10 +7,8 @@
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="gui.a.ritter@gmail.com">Guilheme Alan Ritter</maintainer>
   <maintainer email="eetu.silvennoinen@gmail.com">Eetu Silvennoinen</maintainer>
-
-
+  <maintainer email="gui.a.ritter@gmail.com">Guilheme Alan Ritter</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
